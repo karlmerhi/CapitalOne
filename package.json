@@ -23,5 +23,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/capital-one-assessment.git"
   }
 }
