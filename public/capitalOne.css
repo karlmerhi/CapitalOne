@@ -1,0 +1,14 @@
+.myheader {
+    background-color: rgb(238, 253, 19);
+ }
+ 
+ body {
+  background-color: black;
+  font-family: 'Raleway', sans-serif;
+  text-shadow: 7px 7px 7px #aaa;
+ }
+
+ .navbar-default {
+    background-color: #dfe0cb !important;
+    border-color: #ececec !important;
+}

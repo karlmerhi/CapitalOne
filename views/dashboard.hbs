@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Reward Points: {{reward.amount}}</h2>    
+    <h2>List of Transactions
+      <a href="/addTransaction" class="btn btn-success pull-right">Add&nbsp;Transactions</a>
+    </h2>
+    <hr />
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Transaction&nbsp;Identifier</th>
+            <th>Date&nbsp;of&nbsp;Transaction</th>
+            <th>Merchant&nbsp;Code</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each transaction}}
+          <tr>
+            <td>{{_id}}</td>
+            <td>{{date}}</td>
+            <td>{{merchant_code}}</td>
+            <td>{{amount_cents}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {{#unless departments}}
+  <div class="col-md-12 text-center">
+    <strong>{{message}}</strong>
+  </div>
+  {{/unless}}
+</div>
