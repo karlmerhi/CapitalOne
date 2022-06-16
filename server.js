@@ -10,6 +10,14 @@ var currentTime = new Date().toISOString().slice(0, 10);
 
 var HTTP_PORT = process.env.PORT || 8080;
 
+// Setup client-sessions
+app.use(clientSessions({
+    cookieName: "session", // this is the object name that will be added to 'req'
+    secret: process.env.SECRET, // this should be a long un-guessable string.
+    duration: 10 * 60 * 1000, // duration of the session in milliseconds 
+    activeDuration: 10 * 1000 * 60 // the session will be extended by this many ms each request (1 minute)
+  }));
+
 app.engine(
     ".hbs",
     exphbs.engine({
@@ -48,13 +56,6 @@ app.use((req, res, next) => {
     next();
   });
 
-// Setup client-sessions
-app.use(clientSessions({
-    cookieName: "session", // this is the object name that will be added to 'req'
-    secret: process.env.SECRET, // this should be a long un-guessable string.
-    duration: 10 * 60 * 1000, // duration of the session in milliseconds 
-    activeDuration: 10 * 1000 * 60 // the session will be extended by this many ms each request (1 minute)
-  }));
 
 app.use(express.static("public")); //to recognize the css files
 app.use(express.urlencoded({ extended: true }));
@@ -95,7 +96,6 @@ app.get("/", (req, res) => {
       req.session.user = {
         username: user.username,
         password: user.password,
-        loginHistory: user.loginHistory
       };
   
       res.redirect("/dashboard");
