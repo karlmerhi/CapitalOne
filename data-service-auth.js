@@ -3,7 +3,7 @@ require("dotenv").config();
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 // require bcrypt to hash passwords
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const transactionSchema = new Schema({
   date: {

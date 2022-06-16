@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const clientSessions = require("client-sessions");
 require("dotenv").config(({path:__dirname+'/process.env'}));
 var path = require("path");
